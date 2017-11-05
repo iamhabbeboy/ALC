@@ -1,0 +1,45 @@
+{
+  "name": "alc-api",
+  "scripts": {
+<<<<<<< HEAD
+    "start": "main.js",
+    "build-css": "node-sass --include-path sass views/assets/sass/main.sass   views/assets/css/main.css",
+    "watch-css": "nodemon -e sass -x \"npm run build-css\""
+=======
+    "start": "main.js"
+>>>>>>> 29d6f445192b58b4a79e6d03af4207410b8b560d
+  },
+  "description": "alc backend api",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+<<<<<<< HEAD
+    "url": "https://github.com/iamhabbeboy/alc-test.git"
+  },
+  "dependencies": {
+    "debug": "3.1.0",
+    "ejs": "2.5.7",
+    "express": "^4.16.1",
+    "logger": "0.0.1",
+    "mongodb": "^2.2.31",
+    "mongoose": "",
+    "monk": "6.0.4",
+    "morgan": "1.9.0",
+    "node-sass": "^4.5.3",
+    "nodemon": "1.12.1",
+    "objectid": "^3.2.1",
+    "serve-favicon": "2.4.5"
+=======
+    "url": "https://github.com/iamhabbeboy/alc-test.gitclear"
+  },
+  "dependencies": {
+    "express": "^4.16.1",
+    "mongodb": "^2.2.31",
+    "mongoose": "",
+    "morgan": "",
+    "serve-favicon":"2.4.5",
+    "debug": "3.1.0",
+    "monk": "6.0.4"
+>>>>>>> 29d6f445192b58b4a79e6d03af4207410b8b560d
+  }
+}

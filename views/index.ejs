@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> ALC Assessment </title>
+
+    <!-- CSS -->
+      <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+      <link href="assets/css/main.css" rel="stylesheet">
+      <link rel="stylesheet" href="./assets/css/font-awesome.min.css">
+    <!-- END CSS -->
+
+</head>
+<body>
+ 
+    <div class="container section__parent">
+        <div class="col-md-3 section__sidebar">
+            <div class="section__search the-icons span3">
+                <h4> &nbsp;</h4>
+                <p>&nbsp;</p>
+            </div>
+            <div class="divider">
+                Students information
+            </div>
+            <ul class="section__info">
+                <% if ( result.length > 0 ) { %>
+                    <% result.forEach(function(value) { %>
+                        <li class="list__data<%=value._id%>">
+                            <a href="#" class="data__preview" data-id="<%= value._id %>">
+                                <div class="pull-left"> 
+                                    <%= value.firstname %> <%= value.lastname %>
+                                    <p> <%= value.parentname %> </p>
+                                    <p> <%= value.level %> </p>
+                                </div>
+                                <div class="pull-right">
+                                    <span class="button-link">  <i class="demo-icon  icon-angle-circled-right">&#xf138;</i></span>
+                                </div>
+                                <div class="clearfix"></div>
+                            </a>
+                        </li>
+                    <% }) %>
+                <% } %>
+             
+            </ul>
+        </div>
+        <div class="col-md-9 section__central">
+            <div class="section-starter">
+            <div class="section__first">
+                <h1> ALC School Information System </h1>
+                <!--<img src="./assets/images/book-icon.png" alt="" border="0" width="100">-->
+            </div>
+            <div class="section__first__sidebar">
+                <div class="col-md-3 section__first__sidebar__count">
+                    <h1 class="total__record"><%= result.length %></h1>
+                    <p>Total Record</p>
+                </div>
+                <div class="col-md-9 section__first__sidebar__data">
+                    <h4> Recent Record</h4>
+                    <p><%=result[result.length-1].firstname %> <%=result[result.length-1].lastname %>
+                    </p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="section__first__sidebar__two">
+                <div class="col-md-3 section__first__sidebar__record">
+                    <p>
+                        <a href="#" id="new-record">
+                            click to add new record
+                        </a>
+                    </p>
+                </div>
+                <div class="col-md-9 section__first__sidebar__about">
+                    <h4>About App</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quae corporis vero itaque dicta suscipit deserunt aliquam tempore expedita blanditiis! Provident consectetur sed praesentium. Animi aperiam voluptates nulla esse dolorum?</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+           </div>
+           <div class="section-form">
+               <div class="col-md-5 section__form__first">
+                  <div class="section__form__inner"> 
+                    <h3 id="add-new"> Add New </h3>
+                
+                    <form method="POST" id="formloader">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="First Name" name="firstname" required id="firstname">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Last Name" name="lastname" required id="lastname">
+                    </div>
+                    <div class="form-group">
+                       
+                        <select name="level" id="" class="form-control" required>
+                            <option value="">Level</option>
+                            <option value="JSSI">JSS I</option>
+                            <option value="JSSII">JSS II</option>
+                            <option value="JSSIII">JSS III </option>
+                            <option value="SSSI"> SSS I</option>
+                            <option value="SSSII"> SSS II </option>
+                            <option value="SSSIII">SSS III </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="parentname" class="form-control" placeholder="Parent Name" required id="parentnm">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control" placeholder="Parent Email Address" required id="pemail"> 
+                    </div>
+                    <div class="form-group">
+                            <textarea name="address" class="form-control" placeholder="Home Address" required style="resize: none" id="addr"></textarea>
+                        </div>
+
+                    <button type="submit" class="btn btn-primary btn-lg btn-custom" id="add-new"> Submit </button>
+                    <div class="success-msg"></div>
+                   </form>
+            </div>
+                   <div class="section__user__info">
+                        <div style="margin-top: 20px;text-align:center"><img src="assets/images/default-avatar.svg" width="100" height="100" alt="loading.."></div>
+                        <h3> Student Information </h3>
+                        <p class="edit-instruction">click on student details edit</p>
+                        <div>
+                          <div class="col-md-6">
+                            <h4>Full Name</h4>
+                          </div>
+                          <div class="col-md-6">
+                            <div id="fullname"></div>
+                          </div>
+                          <div class="clearfix"></div>
+                          <div class="col-md-6">
+                            <h4> Parent Name </h4>
+                          </div>
+                          <div class="col-md-6">
+                            <p id="parentname"></p>
+                          </div>
+                          <div class="clearfix"></div>
+                          <div class="col-md-6">
+                            <h4> Level </h4>
+                          </div>
+                          <div class="col-md-6">
+                            <p id="level"></p>
+                          </div>
+                          <div class="clearfix"></div>
+                          <div class="col-md-6">
+                            <h4>Address</h4>
+                          </div>
+                          <div class="col-md-6">
+                            <p id="address"></p>
+                          </div>
+                          <div class="clearfix"></div>
+                          <div style="text-align:center">
+                            <p id="modify">
+                               <a href="#" id="edit-button">Edit</a>&nbsp; / &nbsp; <a href="#" id="delete">Delete </a>
+                            </p>
+                            <p id="message-success"></p>
+                          </div>
+                            <!--<img src="./assets/bower_components/SVG-Loaders/svg-loaders/puff.svg" width="200px"/> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 section__form__effect">
+                    <div class="close-button pull-right">
+                        <a href="#" id="close-btn"><h1>&times;</h1></a>
+                    </div>
+                    <div class="clearfix"></div>
+                  
+                </div>
+           </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    
+    <!-- SCRIPT -->
+        <script src="./assets/js/jquery.min.js" ></script>
+        <script src="./assets/js/alc.js" ></script>
+
+    <!-- END SCRIPT -->
+
+</body>
+</html>
