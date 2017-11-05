@@ -1,0 +1,8 @@
+{
+  "name": "alc-app",
+  "description": "",
+  "repository": "",
+  "logo": "",
+  "keywords":[],
+  "image": "heroku/nodejs"
+}
